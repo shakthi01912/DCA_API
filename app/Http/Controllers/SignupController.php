@@ -9,7 +9,7 @@ use Validator;
 class SignupController extends Controller
 {
     function list() {
-        return Device::all();
+        return User::all();
 }
 
 function add(Request $req){
@@ -27,12 +27,12 @@ function add(Request $req){
         ]);
     }
 
-    $device = New Device;
-    $device -> name = $req -> name;
-    $device -> email = $req -> email;
-    $device -> password = $req -> password;
-    // $device -> save(); //save data into the db
-    $result = $device -> save();
+    $user = New User;
+    $user -> name = $req -> name;
+    $user -> email = $req -> email;
+    $user -> password = $req -> password;
+    // $user -> save(); //save data into the db
+    $result = $user -> save();
 
     if($result){
         return ["Result" => "Data has been posted successfully!"];
@@ -58,12 +58,12 @@ function test(Request $req){
         return response()->json($validator->errors(), 401);
     }
     else{
-        $device = New Device;
-        $device -> name = $req -> name;
-        $device -> email = $req -> email;
-        $device -> password = $req -> password;
-        // $device -> save(); //save data into the db
-        $result = $device -> save();
+        $user = New User;
+        $user -> name = $req -> name;
+        $user -> email = $req -> email;
+        $user -> password = $req -> password;
+        // $user -> save(); //save data into the db
+        $result = $user -> save();
     
         if($result){
             return ["Result" => "Data has been posted successfully!"];
